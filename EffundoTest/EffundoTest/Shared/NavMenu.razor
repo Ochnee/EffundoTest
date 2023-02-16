@@ -1,0 +1,49 @@
+﻿@using EffundoTest.Models
+@using EffundoTest.Services
+<div class="top-row NavBar">
+    
+    <div class="LogoContainer">
+        <a class="LogoLink" href="">Effundo</a>
+    </div>
+    
+    <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
+        <nav class="d-flex flex-row">
+
+            @foreach (var p in Pages)
+            {
+                <div class="nav-item">
+                    <NavLink class="nav-link" href="fetchdata">
+                        @p.Title
+                    </NavLink>
+                </div>
+            }
+
+        </nav>
+    </div>
+
+</div>
+
+
+@code {
+    private bool collapseNavMenu = true;
+
+    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    [Inject] public MockPageService MockService { get; set; }
+    public List<Page> Pages { get; set; }
+
+    protected override void OnParametersSet()
+    {
+        Pages = MockService.GetPages(5).ToList();
+        StateHasChanged();
+    }
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+}
