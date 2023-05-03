@@ -1,0 +1,27 @@
+﻿.TableOfContentsContainer {
+    background: rgb(1,1,1,0.05);
+    width: 35%;
+    padding: 1%;
+    border-radius: 5px;
+    border: 1px solid grey;
+}
+
+
+.TableOfContentsHeader {
+    display: flex;
+    justify-content: space-between;
+}
+
+.TableOfContentsCollapseButton {
+    background: transparent;
+    border-radius: 5px;
+    border: 1px solid grey;
+    color: grey;
+}
+
+.TableOfContentsCollapseButton:hover {
+    background: grey;
+    color: white;
+}
+
+

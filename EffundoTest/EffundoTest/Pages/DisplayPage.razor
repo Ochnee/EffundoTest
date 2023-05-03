@@ -1,0 +1,23 @@
+﻿@layout ArticleLayout
+@page "/{title}"
+@using EffundoTest.Component.TableOfContents
+@using EffundoTest.Models
+@using EffundoTest.Services
+
+<h3>@Page.Title</h3>
+
+<TableOfContents />
+
+@((MarkupString)Page.Content)
+
+@code {
+    [Parameter] public string Title { get; set; }
+    [Inject] protected MockPageService mockService { get; set; }
+
+    public Page Page { get; set; }
+
+    protected override void OnParametersSet()
+    {
+        Page = mockService.GetPage(Title);
+    }
+}

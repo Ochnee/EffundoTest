@@ -5,14 +5,26 @@ namespace EffundoTest.Services
 {
     public class MockPageService
     {
-        public IEnumerable<Page> GetPages(int numberOfPages)
+        List<Page> _pages;
+        public MockPageService(int pageCount)
+        {
+            _pages = GeneratePages(pageCount).ToList();
+        }
+
+        public List<Page> GetPages()
+            => _pages;
+
+        public Page GetPage(string title)
+            => _pages.First(x => x.Title == title);
+
+        public IEnumerable<Page> GeneratePages(int numberOfPages)
         {
             for(int i = 1; i <= numberOfPages; i++)
             {
                 yield return new Page()
                 {
                     Title = "Page" + i.ToString(),
-                    Content = LoremIpsum(200, 500, 20, 50, 3)
+                    Content = LoremIpsum(5, 25, 10, 50, 5)
                 };
             }
         }
@@ -35,6 +47,9 @@ namespace EffundoTest.Services
 
             for (int p = 0; p < numParagraphs; p++)
             {
+                var title = words[rand.Next(words.Length)] + " " + words[rand.Next(words.Length)];
+                result.Append("<h4 id='" + title.Replace(" ", "_") + "'>" + title + "</h4>");
+
                 result.Append("<p>");
                 for (int s = 0; s < numSentences; s++)
                 {

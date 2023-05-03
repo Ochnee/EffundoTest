@@ -1,0 +1,15 @@
+﻿
+.SocialMediaIcon {
+    background: white;
+    width: 10%;
+    margin: 1%;
+    padding: 1%;
+    display: flex;
+    align-content: center;
+    flex-wrap: wrap;
+    border-radius: 100%;
+}
+
+.SocialMediaIconImage {
+    width: 100%;
+}

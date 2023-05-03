@@ -1,5 +1,7 @@
 ﻿@using EffundoTest.Models
 @using EffundoTest.Services
+@using EffundoTest.Component
+
 <div class="top-row NavBar">
     
     <div class="LogoContainer">
@@ -16,13 +18,17 @@
             @foreach (var p in Pages)
             {
                 <div class="nav-item">
-                    <NavLink class="nav-link" href="fetchdata">
+                    <NavLink class="nav-link" href="@p.Title">
                         @p.Title
                     </NavLink>
                 </div>
             }
 
+
         </nav>
+    </div>
+    <div class="@NavMenuCssClass NavMenuRight">
+        <PayPalDonateButton/>
     </div>
 
 </div>
@@ -38,7 +44,7 @@
 
     protected override void OnParametersSet()
     {
-        Pages = MockService.GetPages(5).ToList();
+        Pages = MockService.GetPages();
         StateHasChanged();
     }
 

@@ -1,0 +1,14 @@
+﻿<div class="TableOfContentsContainer">
+    <div class="TableOfContentsHeader">
+        <h5>Indholdsfortegnelse</h5>
+        <button class="TableOfContentsCollapseButton" @onclick="ToggleCollapse"><i class="oi oi-menu"></i></button>
+    </div>
+    @if (!Collapsed)
+    {
+        <ul>
+            @foreach(Header header in Headers ?? new()){
+                <li><a @onclick="() => GoToTitle(header.id)">@header.title</a></li>
+            }
+        </ul>
+    }
+</div>

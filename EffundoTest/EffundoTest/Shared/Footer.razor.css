@@ -1,0 +1,36 @@
+﻿.col{
+    width: 25%;
+}
+
+.Footer {
+    bottom: 0;
+    width: 100%;
+    background: #1a51a1;
+    margin: 0;
+    padding: 0 15%;
+    color: white;
+}
+
+.LogoContainer {
+    width: 100%;
+    margin-right: 1%;
+    line-height: 1.5rem;
+}
+
+.LogoLink {
+    padding-top: 1rem;
+    display: block;
+    color: white;
+    text-decoration: none;
+    font-size: 3rem;
+}
+
+.FooterInfo{
+    text-align: center;
+    width: 100%;
+}
+
+.SocialMediaIconContainer {
+    display: flex;
+    justify-content: center;
+}
