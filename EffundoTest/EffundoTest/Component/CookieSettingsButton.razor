@@ -1,0 +1,14 @@
+﻿@using BytexDigital.Blazor.Components.CookieConsent
+
+<div class="CookieContainer" @onclick="@(async () => await OnClick())">
+    <img class="CookieIcon" />
+</div>
+
+@code{
+    [Inject]protected CookieConsentService cookieConsentService { get; set; }
+
+    protected async Task OnClick()
+    {
+        await cookieConsentService.ShowSettingsModalAsync();
+    }
+}

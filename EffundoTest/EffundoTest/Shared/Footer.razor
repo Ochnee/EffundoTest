@@ -1,6 +1,5 @@
 ﻿@using EffundoTest.Component
 <div class="row Footer">
-
     <div class="col">
         <div class="LogoContainer">
             <a class="LogoLink" href="">Effundo</a>
@@ -48,3 +47,7 @@
         </div>
     </div>
 </div>
+
+@if(DisplayCookieSettingsButton){
+<CookieSettingsButton/>
+}

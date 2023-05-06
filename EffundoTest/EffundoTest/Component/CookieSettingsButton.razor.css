@@ -1,0 +1,25 @@
+﻿.CookieContainer {
+    width: 4rem;
+    height: 4rem;
+    background: darkblue;
+    position: sticky;
+    bottom: 1rem;
+    left: 1rem;
+    border-radius: 100px;
+    box-shadow: rgba(0,0,0,0.5) 3px 3px 5px;
+}
+
+.CookieContainer:hover{
+    box-shadow: none;
+}
+
+.CookieContainer:active {
+    box-shadow: none;
+    background-color: lightgrey;
+}
+
+.CookieIcon {
+    content: url('https://api.iconify.design/ph/cookie.svg?color=white');
+    width: 4rem;
+    height: 4rem;
+}
